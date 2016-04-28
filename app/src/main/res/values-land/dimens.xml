@@ -1,0 +1,4 @@
+<resources>
+       <dimen name="text">50px</dimen>
+    <dimen name="width">1800px</dimen>
+</resources>
