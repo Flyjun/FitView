@@ -4,7 +4,7 @@
 在开发中，ui给我们的是px单位的值，那么我们常常需要转换，现在开发出FitView，可以和ui的值对应上了，我们不用再担心具体是多少了。
 FitView支持的设置的属性：
 
-                textSize
+        textSize
 
 			padding
 			paddingLeft
