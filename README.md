@@ -1,7 +1,7 @@
 # FitView
 分辨率适配FitView
 
-在开发中，ui给我们的是px单位的值，那么我们常常需要转换，现在开发出FitView，可以和ui的值对应上了，我们不用再担心具体是多少了。
+在开发中，ui给我们的是px单位的值，ui都是以像素来设计的，那么我们常常需要转换，现在开发出FitView，可以和ui的值对应上了，我们不用再担心具体是多少了。如果是横屏或者是竖屏，我们只要在xml上写上具体的值就可以，FitView内部会按手机的分辨率进行一个转换，如果需要横竖屏适配，则需要写两套的dimens文件。暂时只是复写了FitLinearLayout、FitRelativeLayout，有需要的可以自行复写其它layout
 FitView支持的设置的属性：
 
             textSize
