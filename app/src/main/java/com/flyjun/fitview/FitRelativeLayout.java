@@ -5,27 +5,27 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-public class FixRelativeLayout extends RelativeLayout{
+public class FitRelativeLayout extends RelativeLayout{
 	
-	private FixHelper fixHelper;
+	private FitHelper fitHelper;
 	
-	public FixRelativeLayout(Context context, AttributeSet attrs,
+	public FitRelativeLayout(Context context, AttributeSet attrs,
 							 int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		// TODO Auto-generated constructor stub
-		fixHelper= FixHelper.newInstance(context);
+		fitHelper = FitHelper.newInstance(context);
 	}
 
-	public FixRelativeLayout(Context context, AttributeSet attrs) {
+	public FitRelativeLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
-		fixHelper= FixHelper.newInstance(context);
+		fitHelper = FitHelper.newInstance(context);
 	}
 
-	public FixRelativeLayout(Context context) {
+	public FitRelativeLayout(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
-		fixHelper= FixHelper.newInstance(context);
+		fitHelper = FitHelper.newInstance(context);
 	}
 
 	
@@ -36,7 +36,7 @@ public class FixRelativeLayout extends RelativeLayout{
 		/**
 		 * 获取子控件的AttributeSet
 		 */
-		fixHelper.setViewAttr(fixHelper,attrs);
+		fitHelper.setViewAttr(fitHelper,attrs);
 		
 		return super.generateLayoutParams(attrs);
 	}
@@ -53,7 +53,7 @@ public class FixRelativeLayout extends RelativeLayout{
 		 for (int i = 0;i<count; i++)
 	        {
 	            View view = getChildAt(i);
-	            fixHelper.setViews(view, fixHelper.fixAttrsList.get(i));
+	            fitHelper.setViews(view, fitHelper.fitAttrsList.get(i));
 	           
 	        }
 	}

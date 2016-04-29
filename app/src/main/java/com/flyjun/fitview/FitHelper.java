@@ -19,7 +19,7 @@ import java.util.List;
  * @author Flyjun
  *
  */
-public class FixHelper {
+public class FitHelper {
 
 	private static Context context;
 	
@@ -34,7 +34,7 @@ public class FixHelper {
 	/**
 	 * 保存AttributeSet集合
 	 */
-	public static List<FixAttributeSet> fixAttrsList;
+	public static List<FitAttributeSet> fitAttrsList;
 	
 	/**
 	 * 适配支持的属性
@@ -81,12 +81,12 @@ public class FixHelper {
 	private static final int MARGIN_BOTTOM = 12;
 	
 	
-	private static FixHelper instance;
+	private static FitHelper instance;
 	private static View dynamicView;
 	
-	private static FixHelper getInstance(){
+	private static FitHelper getInstance(){
 		if(null == instance){
-			instance=new FixHelper();
+			instance=new FitHelper();
 		}
 		return instance;
 	}
@@ -94,7 +94,7 @@ public class FixHelper {
 	
 	/**
 	 * instance用于代码调用
-	 * FixHelper.on(tb).setWidth(650).setTextSize(65).builder();
+	 * FitHelper.on(tb).setWidth(650).setTextSize(65).builder();
 	 * 调用builder才会生效
 	 */
 	public static Builder on(View view){
@@ -109,7 +109,7 @@ public class FixHelper {
 	 * @param width
 	 * @return
 	 */
-	public static float getFixWidth(Context context,float width){
+	public static float getFitWidth(Context context,float width){
 		getInstance().init(context);
 		return getInstance().getWidthSize(width);
 	}
@@ -120,7 +120,7 @@ public class FixHelper {
 	 * @param height
 	 * @return
 	 */
-	public static float getFixHeight(Context context,float height){
+	public static float getFitHeight(Context context,float height){
 		getInstance().init(context);
 		return getInstance().getHeightSize(height);
 	}
@@ -130,13 +130,13 @@ public class FixHelper {
 	 * @param context
 	 * @return
 	 */
-	public static FixHelper newInstance(Context context){
+	public static FitHelper newInstance(Context context){
 		
-		FixHelper fixHelper=new FixHelper();
-		fixHelper.init(context);
-		fixHelper.initAttrsList();
+		FitHelper fitHelper =new FitHelper();
+		fitHelper.init(context);
+		fitHelper.initAttrsList();
 		
-		return fixHelper;
+		return fitHelper;
 	}
 	
 	/**
@@ -144,18 +144,18 @@ public class FixHelper {
 	 * @param view
 	 * @param attrs
 	 */
-	public void setViews(View view,FixAttributeSet attrs){
+	public void setViews(View view,FitAttributeSet attrs){
 		setAttrs(view,attrs);
 	}
 	
 	/**
 	 * 获取view的AttributeSet
-	 * @param fixHelper
+	 * @param fitHelper
 	 * @param attrs
 	 */
-	public void setViewAttr(FixHelper fixHelper, AttributeSet attrs){
+	public void setViewAttr(FitHelper fitHelper, AttributeSet attrs){
 		if(null != attrs){
-			fixHelper.getAttrs(attrs);
+			fitHelper.getAttrs(attrs);
 		}
 	}
 	
@@ -167,7 +167,7 @@ public class FixHelper {
 	}
 	
 	public void initAttrsList(){
-		fixAttrsList=new ArrayList<FixAttributeSet>();
+		fitAttrsList =new ArrayList<FitAttributeSet>();
 	}
 	
 	/**
@@ -189,7 +189,7 @@ public class FixHelper {
 
 		 TypedArray typedArray = context.obtainStyledAttributes(attrs, designAttrs);
 		 
-		 FixAttributeSet fixAttrs=new FixAttributeSet();
+		 FitAttributeSet fitAttrs=new FitAttributeSet();
 		 
 		 for (int i = 0; i < typedArray.getIndexCount(); i++) {
 			 
@@ -206,60 +206,60 @@ public class FixHelper {
 			switch (index) {
 
 			case TEXT_SIZE:
-				fixAttrs.setTextSize(typedArray.getDimension(index, 0));
+				fitAttrs.setTextSize(typedArray.getDimension(index, 0));
 				break;
 
 			case PADDING:
-				fixAttrs.setPadding(typedArray.getDimension(index, 0));
+				fitAttrs.setPadding(typedArray.getDimension(index, 0));
 				break;
 
 			case PADDING_TOP:
-				fixAttrs.setPaddingTop(typedArray.getDimension(index, 0));
+				fitAttrs.setPaddingTop(typedArray.getDimension(index, 0));
 				break;
 
 			case PADDING_RIGHT:
-				fixAttrs.setPaddingRight(typedArray.getDimension(index, 0));
+				fitAttrs.setPaddingRight(typedArray.getDimension(index, 0));
 				break;
 
 			case PADDING_LEFT:
-				fixAttrs.setPaddingLeft(typedArray.getDimension(index, 0));
+				fitAttrs.setPaddingLeft(typedArray.getDimension(index, 0));
 				break;
 
 			case PADDING_BOTTOM:
-				fixAttrs.setPaddingBottom(typedArray.getDimension(index, 0));
+				fitAttrs.setPaddingBottom(typedArray.getDimension(index, 0));
 				break;
 
 			case WIDTH:
-				fixAttrs.setWidth(typedArray.getDimension(index, 0));
+				fitAttrs.setWidth(typedArray.getDimension(index, 0));
 				break;
 
 			case HEIGHT:
-				fixAttrs.setHeight(typedArray.getDimension(index, 0));
+				fitAttrs.setHeight(typedArray.getDimension(index, 0));
 				break;
 
 			case MARGIN:
-				fixAttrs.setMargin(typedArray.getDimension(index, 0));
+				fitAttrs.setMargin(typedArray.getDimension(index, 0));
 				break;
 
 			case MARGIN_TOP:
-				fixAttrs.setMarginTop(typedArray.getDimension(index, 0));
+				fitAttrs.setMarginTop(typedArray.getDimension(index, 0));
 				break;
 
 			case MARGIN_RIGHT:
-				fixAttrs.setMarginRight(typedArray.getDimension(index, 0));
+				fitAttrs.setMarginRight(typedArray.getDimension(index, 0));
 				break;
 
 			case MARGIN_LEFT:
-				fixAttrs.setMarginLeft(typedArray.getDimension(index, 0));
+				fitAttrs.setMarginLeft(typedArray.getDimension(index, 0));
 				break;
 
 			case MARGIN_BOTTOM:
-				fixAttrs.setMarginBottom(typedArray.getDimension(index, 0));
+				fitAttrs.setMarginBottom(typedArray.getDimension(index, 0));
 				break;
 			}
 		}
 		 
-		 fixAttrsList.add(fixAttrs);
+		 fitAttrsList.add(fitAttrs);
 		 
 		 typedArray.recycle();
 		 
@@ -267,18 +267,18 @@ public class FixHelper {
 	
 	/**
 	 * 设置view参数
-	 * @param fixAttrs
+	 * @param fitAttrs
 	 */
-	private void setAttrs(final View view,final FixAttributeSet fixAttrs){
+	private void setAttrs(final View view,final FitAttributeSet fitAttrs){
 		
 		view.post(new Runnable() {
 			
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				setTextSize(view,fixAttrs);
-				setViewParams(view,fixAttrs);
-				setViewPadding(view,fixAttrs);
+				setTextSize(view,fitAttrs);
+				setViewParams(view,fitAttrs);
+				setViewPadding(view,fitAttrs);
 			}
 		});
 		
@@ -288,9 +288,9 @@ public class FixHelper {
 	/**
 	 * 设置view的大小、margin值
 	 * @param view
-	 * @param fixAttrs
+	 * @param fitAttrs
 	 */
-	private void setViewParams(View view,FixAttributeSet fixAttrs){
+	private void setViewParams(View view,FitAttributeSet fitAttrs){
 		//是否设置view的params值
 		boolean isParams=false;
 		/**
@@ -298,14 +298,14 @@ public class FixHelper {
 		 */
 		LayoutParams params=view.getLayoutParams();
 		
-		if(fixAttrs.getWidth() != 0){
+		if(fitAttrs.getWidth() != 0){
 			isParams=true;
-			params.width=(int) getWidthSize(fixAttrs.getWidth());
+			params.width=(int) getWidthSize(fitAttrs.getWidth());
 		}
 		
-		if(fixAttrs.getHeight() != 0){
+		if(fitAttrs.getHeight() != 0){
 			isParams=true;
-			params.height=(int) getHeightSize(fixAttrs.getHeight());
+			params.height=(int) getHeightSize(fitAttrs.getHeight());
 		}
 		
 		/**
@@ -314,33 +314,33 @@ public class FixHelper {
 		 if (params instanceof MarginLayoutParams)
          {
 			 MarginLayoutParams marginParams=(MarginLayoutParams) params;
-//			 marginParams.setMargins((int)getWidthSize(fixAttrs.getMargin()), (int)getHeightSize(fixAttrs.getMargin()), (int)getWidthSize(fixAttrs.getMargin()), (int)getHeightSize(fixAttrs.getMargin()));
+//			 marginParams.setMargins((int)getWidthSize(fitAttrs.getMargin()), (int)getHeightSize(fitAttrs.getMargin()), (int)getWidthSize(fitAttrs.getMargin()), (int)getHeightSize(fitAttrs.getMargin()));
              
-			 if(fixAttrs.getMargin() != 0){
+			 if(fitAttrs.getMargin() != 0){
 				 isParams=true;
-				 marginParams.leftMargin=marginParams.rightMargin=(int)getWidthSize(fixAttrs.getMargin());
-				 marginParams.topMargin=marginParams.bottomMargin=(int)getHeightSize(fixAttrs.getMargin());
+				 marginParams.leftMargin=marginParams.rightMargin=(int)getWidthSize(fitAttrs.getMargin());
+				 marginParams.topMargin=marginParams.bottomMargin=(int)getHeightSize(fitAttrs.getMargin());
 			 }
          
-			 if(fixAttrs.getMarginLeft() != 0){
+			 if(fitAttrs.getMarginLeft() != 0){
 				 isParams=true;
-				 marginParams.leftMargin=(int) getWidthSize(fixAttrs.getMarginLeft());
+				 marginParams.leftMargin=(int) getWidthSize(fitAttrs.getMarginLeft());
 			    
 			 }
 			 
-			 if(fixAttrs.getMarginTop() != 0){
+			 if(fitAttrs.getMarginTop() != 0){
 				 isParams=true;
-				 marginParams.topMargin=(int) getHeightSize(fixAttrs.getMarginTop());
+				 marginParams.topMargin=(int) getHeightSize(fitAttrs.getMarginTop());
 			 }
 			 
-			 if(fixAttrs.getMarginRight() != 0){
+			 if(fitAttrs.getMarginRight() != 0){
 				 isParams=true;
-				 marginParams.rightMargin=(int) getWidthSize(fixAttrs.getMarginRight());
+				 marginParams.rightMargin=(int) getWidthSize(fitAttrs.getMarginRight());
 			 }
 			 
-			 if(fixAttrs.getMarginBottom() != 0){
+			 if(fitAttrs.getMarginBottom() != 0){
 				 isParams=true;
-				 marginParams.bottomMargin=(int) getHeightSize(fixAttrs.getMarginBottom());
+				 marginParams.bottomMargin=(int) getHeightSize(fitAttrs.getMarginBottom());
 			 }
          }
 		 
@@ -352,9 +352,9 @@ public class FixHelper {
 	/**
 	 * 设置字体的大小
 	 */
-	private void setTextSize(View view,FixAttributeSet fixAttrs){
-		if(view instanceof TextView && fixAttrs != null){
-			float size=getWidthSize(fixAttrs.getTextSize());
+	private void setTextSize(View view,FitAttributeSet fitAttrs){
+		if(view instanceof TextView && fitAttrs != null){
+			float size=getWidthSize(fitAttrs.getTextSize());
 			if(size != 0){
 				((TextView) view).setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
 			}
@@ -364,7 +364,7 @@ public class FixHelper {
 	/**
 	 * 设置padding值
 	 */
-	private void setViewPadding(View view,FixAttributeSet fixAttrs){
+	private void setViewPadding(View view,FitAttributeSet fitAttrs){
 		
 		int left = view.getPaddingLeft();
 		int right = view.getPaddingRight(); 
@@ -374,30 +374,30 @@ public class FixHelper {
 		//标志是否设置padding值
 		boolean isPadding=false;
 		
-		if(fixAttrs.getPadding() != 0){
+		if(fitAttrs.getPadding() != 0){
 			isPadding=true;
-			left=right=(int) getWidthSize(fixAttrs.getPadding());
-			top=bottom= (int) getHeightSize(fixAttrs.getPadding());
+			left=right=(int) getWidthSize(fitAttrs.getPadding());
+			top=bottom= (int) getHeightSize(fitAttrs.getPadding());
 		}
 		
-		if(fixAttrs.getPaddingLeft() != 0){
+		if(fitAttrs.getPaddingLeft() != 0){
 			isPadding=true;
-			left=(int) getWidthSize(fixAttrs.getPaddingLeft());
+			left=(int) getWidthSize(fitAttrs.getPaddingLeft());
 		}
 		
-		if(fixAttrs.getPaddingTop() != 0){
+		if(fitAttrs.getPaddingTop() != 0){
 			isPadding=true;
-			top=(int) getWidthSize(fixAttrs.getPaddingTop());
+			top=(int) getWidthSize(fitAttrs.getPaddingTop());
 		}
 		
-		if(fixAttrs.getPaddingRight() != 0){
+		if(fitAttrs.getPaddingRight() != 0){
 			isPadding=true;
-			right=(int) getWidthSize(fixAttrs.getPaddingRight());
+			right=(int) getWidthSize(fitAttrs.getPaddingRight());
 		}
 		
-		if(fixAttrs.getPaddingBottom() != 0){
+		if(fitAttrs.getPaddingBottom() != 0){
 			isPadding=true;
-			bottom=(int) getWidthSize(fixAttrs.getPaddingBottom());
+			bottom=(int) getWidthSize(fitAttrs.getPaddingBottom());
 		}
 		
 		if(isPadding){
@@ -469,68 +469,68 @@ public class FixHelper {
 	 *
 	 */
 	public static class Builder{
-		private FixAttributeSet fixAttrs;
+		private FitAttributeSet fitAttrs;
 		
 		public Builder() {
 			// TODO Auto-generated constructor stub
-			this.fixAttrs=new FixAttributeSet();
+			this.fitAttrs =new FitAttributeSet();
 		}
 		public Builder setWidth(float width) {
-			this.fixAttrs.setWidth(width);
+			this.fitAttrs.setWidth(width);
 			return this;
 		}
 		public Builder setHeight(float height) {
-			this.fixAttrs.setHeight(height);
+			this.fitAttrs.setHeight(height);
 			return this;
 		}
 		public Builder setTextSize(float textSize) {
-			this.fixAttrs.setTextSize(textSize);
+			this.fitAttrs.setTextSize(textSize);
 			return this;
 		}
 		public Builder setMargin(float margin) {
-			this.fixAttrs.setMargin(margin);
+			this.fitAttrs.setMargin(margin);
 			return this;
 		}
 		public Builder setMarginLeft(float marginLeft) {
-			this.fixAttrs.setMarginLeft(marginLeft);
+			this.fitAttrs.setMarginLeft(marginLeft);
 			return this;
 		}
 		public Builder setMarginRight(float marginRight) {
-			this.fixAttrs.setMarginRight(marginRight);
+			this.fitAttrs.setMarginRight(marginRight);
 			return this;
 		}
 		public Builder setMarginTop(float marginTop) {
-			this.fixAttrs.setMarginTop(marginTop);
+			this.fitAttrs.setMarginTop(marginTop);
 			return this;
 		}
 		public Builder setMarginBottom(float marginBottom) {
-			this.fixAttrs.setMarginBottom(marginBottom);
+			this.fitAttrs.setMarginBottom(marginBottom);
 			return this;
 		}
 		public Builder setPadding(float padding) {
-			this.fixAttrs.setPadding(padding);
+			this.fitAttrs.setPadding(padding);
 			return this;
 		}
 		public Builder setPaddingLeft(float paddingLeft) {
-			this.fixAttrs.setPaddingLeft(paddingLeft);
+			this.fitAttrs.setPaddingLeft(paddingLeft);
 			return this;
 		}
 		public Builder setPaddingRight(float paddingRight) {
-			this.fixAttrs.setPaddingRight(paddingRight);
+			this.fitAttrs.setPaddingRight(paddingRight);
 			return this;
 		}
 		public Builder setPaddingTop(float paddingTop) {
-			this.fixAttrs.setPaddingTop(paddingTop);
+			this.fitAttrs.setPaddingTop(paddingTop);
 			return this;
 		}
 		public Builder setPaddingBottom(float paddingBottom) {
-			this.fixAttrs.setPaddingBottom(paddingBottom);
+			this.fitAttrs.setPaddingBottom(paddingBottom);
 			return this;
 		}
 		
 		public void builder(){
 			if(null != dynamicView){
-				getInstance().setViews(dynamicView, fixAttrs);
+				getInstance().setViews(dynamicView, fitAttrs);
 			}
 		}
 	}

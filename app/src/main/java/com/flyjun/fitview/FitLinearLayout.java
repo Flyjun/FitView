@@ -5,23 +5,23 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class FixLinearLayout extends LinearLayout{
+public class FitLinearLayout extends LinearLayout{
 	
-	private FixHelper fixHelper;
+	private FitHelper fitHelper;
 
-	public FixLinearLayout(Context context) {
+	public FitLinearLayout(Context context) {
 		super(context);
-		fixHelper= FixHelper.newInstance(context);
+		fitHelper = FitHelper.newInstance(context);
 	}
 
-	public FixLinearLayout(Context context, AttributeSet attrs) {
+	public FitLinearLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		fixHelper= FixHelper.newInstance(context);
+		fitHelper = FitHelper.newInstance(context);
 	}
 
-	public FixLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+	public FitLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
-		fixHelper= FixHelper.newInstance(context);
+		fitHelper = FitHelper.newInstance(context);
 	}
 
 
@@ -32,7 +32,7 @@ public class FixLinearLayout extends LinearLayout{
 		/**
 		 * 获取子控件的AttributeSet
 		 */
-		fixHelper.setViewAttr(fixHelper,attrs);
+		fitHelper.setViewAttr(fitHelper,attrs);
 		
 		return super.generateLayoutParams(attrs);
 	}
@@ -49,7 +49,7 @@ public class FixLinearLayout extends LinearLayout{
 		 for (int i = 0;i<count; i++)
 	        {
 	            View view = getChildAt(i);
-	            fixHelper.setViews(view, fixHelper.fixAttrsList.get(i));
+	            fitHelper.setViews(view, fitHelper.fitAttrsList.get(i));
 	        }
 
 	}
