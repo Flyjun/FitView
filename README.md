@@ -31,7 +31,7 @@ demo中设计的基准是1080*1920，开发的时候可以根据ui图的设计�
    
    
     <?xml version="1.0" encoding="utf-8"?>
-    <com.flyjun.fitview.FixLinearLayout
+    <com.flyjun.fitview.FitLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -58,7 +58,7 @@ demo中设计的基准是1080*1920，开发的时候可以根据ui图的设计�
         android:src="@mipmap/ic_launcher"
         android:layout_marginTop="20px"
         android:layout_marginLeft="20px"/>
-    </com.flyjun.fitview.FixLinearLayout>
+    </com.flyjun.fitview.FitLinearLayout>
 
 
 2、动态创建的view也可以使用
